@@ -1,0 +1,68 @@
+.fancy-select {
+	position: relative;
+
+	&.disabled{ opacity: 0.5; }
+
+	.trigger {
+		cursor: pointer;
+		padding: 0.5em 1em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		position: relative;
+		border: solid 1px #000;
+		width: 100%;
+
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			width: 10px; height: 9px;
+			border: solid 10px transparent;
+			border-top-color: #000;
+			top: 50%; right: 10px;
+			margin-top: -4px;
+		}
+	}
+
+	.options {
+		list-style: none;
+		margin: 0;
+		position: absolute;
+		left: 0; top: 48px; right: 0;
+		visibility: hidden;
+		opacity: 0;
+		z-index: 50;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto;
+		background: #fff;
+		border: solid 1px #000;
+		border-top: none;
+
+		&.open{
+			visibility: visible;
+			opacity: 1;
+		}
+
+		&.overflowing{
+			top: auto;
+			bottom: 40px;
+
+			&.open{
+				top: auto;
+				bottom: 50px;
+			}
+		}
+
+		li{
+			padding: 0.5em 1em;
+			cursor: pointer;
+			white-space: nowrap;
+
+			&:hover{
+				background: #eee;
+			}
+		}
+	}
+}
